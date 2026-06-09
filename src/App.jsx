@@ -1,11 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import CartDrawer from "./components/CartDrawer.jsx";
-import ProductCard from "./components/ProductCard.jsx";
 import ProductModal from "./components/ProductModal.jsx";
 import WishWall from "./components/WishWall.jsx";
 import products from "./data/products.json";
 
 const CART_KEY = "flea-market-cart";
+const TABS = [
+  { id: "home", label: "Home", cn: "首页" },
+  { id: "products", label: "Products", cn: "商品" },
+  { id: "wishes", label: "Wish Wall", cn: "许愿墙" }
+];
 
 function readStoredCart() {
   try {
@@ -15,21 +19,41 @@ function readStoredCart() {
   }
 }
 
+function priceLabel(product) {
+  return product.priceLabel || `${product.price}${product.currency || "r"}`;
+}
+
 export default function App() {
-  const [activeCategory, setActiveCategory] = useState("全部");
+  const [activeTab, setActiveTab] = useState("home");
+  const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cart, setCart] = useState(readStoredCart);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const categories = useMemo(
-    () => ["全部", ...Array.from(new Set(products.map((product) => product.category)))],
+    () => ["All", ...Array.from(new Set(products.map((product) => product.category)))],
+    []
+  );
+
+  const featuredProducts = useMemo(
+    () => products.filter((product) => product.featured).slice(0, 5),
     []
   );
 
   const filteredProducts = useMemo(() => {
-    if (activeCategory === "全部") return products;
+    if (activeCategory === "All") return products;
     return products.filter((product) => product.category === activeCategory);
   }, [activeCategory]);
+
+  const groupedProducts = useMemo(() => {
+    return filteredProducts.reduce((groups, product) => {
+      const groupName = product.group || product.category;
+      return {
+        ...groups,
+        [groupName]: [...(groups[groupName] || []), product]
+      };
+    }, {});
+  }, [filteredProducts]);
 
   const cartItems = useMemo(
     () =>
@@ -87,81 +111,169 @@ export default function App() {
     });
   }
 
+  function showProducts(category = activeCategory) {
+    setActiveCategory(category);
+    setActiveTab("products");
+  }
+
   return (
-    <main className="app-shell">
-      <header className="top-bar">
-        <a className="brand" href="#shop" aria-label="回到商品区">
-          Flea Market
-        </a>
-        <nav>
-          <a href="#shop">商品</a>
-          <a href="#wishes">许愿墙</a>
-        </nav>
-      </header>
-
-      <section className="hero" id="shop">
-        <div className="hero-copy">
-          <p className="eyebrow">Queen Mary 校园跳蚤市场</p>
-          <h1>
-            <span>扫码看货</span>
-            <span>现场确认</span>
-          </h1>
-          <p>
-            浏览摊位商品、加入清单并查看总金额。付款不在网页内完成，请现场和摊主确认。
-          </p>
-          <button className="primary-button" type="button" onClick={() => setIsCartOpen(true)}>
-            查看清单 {total}r
-          </button>
-        </div>
-        <div className="hero-product" aria-label="今日示例商品">
-          <img src="/products/logitech-k380.jpg" alt="罗技 K380 蓝牙键盘" />
-          <div>
-            <span>今日商品</span>
-            <strong>罗技 K380</strong>
-            <p>70r</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="shop-section">
-        <div className="section-heading">
-          <p className="eyebrow">Products</p>
-          <h2>商品列表</h2>
-          <p>点击图片查看详情，加入清单后底部会自动计算总金额。</p>
-        </div>
-
-        <div className="category-tabs" role="tablist" aria-label="商品分类">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={category === activeCategory ? "active" : ""}
-              type="button"
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
+    <main className="phone-shell">
+      {activeTab === "home" && (
+        <section className="screen home-screen">
+          <header className="screen-header">
+            <div>
+              <p className="kicker">BUPT Flea Market</p>
+              <h1>Selected Products</h1>
+              <span>精选产品</span>
+            </div>
+            <button className="round-button" type="button" onClick={() => showProducts("All")}>
+              Shop
             </button>
-          ))}
-        </div>
+          </header>
 
-        <div className="product-grid">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              quantity={cart[product.id] || 0}
-              onAdd={addToCart}
-              onSelect={setSelectedProduct}
-            />
-          ))}
-        </div>
-      </section>
+          <div className="feature-rail" aria-label="Featured products">
+            {featuredProducts.map((product) => (
+              <button
+                className="feature-card"
+                type="button"
+                key={product.id}
+                onClick={() => setSelectedProduct(product)}
+              >
+                <img src={product.images[0]} alt={product.name} />
+                <div>
+                  <strong>{product.name}</strong>
+                  <span>{product.shortDesc}</span>
+                </div>
+              </button>
+            ))}
+          </div>
 
-      <WishWall />
+          <button className="wide-promo" type="button" onClick={() => showProducts("Daily")}>
+            <span>Campus Picks</span>
+            <strong>Useful finds for study life</strong>
+          </button>
 
-      <button className="cart-bar" type="button" onClick={() => setIsCartOpen(true)}>
-        <span>{cartCount > 0 ? `${cartCount} 件商品` : "清单为空"}</span>
-        <strong>合计 {total}r</strong>
-      </button>
+          <section className="home-block">
+            <div className="block-title">
+              <p>Quick Browse</p>
+              <h2>Categories</h2>
+            </div>
+            <div className="category-pills">
+              {categories.slice(1).map((category) => (
+                <button type="button" key={category} onClick={() => showProducts(category)}>
+                  {category}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className="home-block">
+            <div className="block-title">
+              <p>How it works</p>
+              <h2>现场确认</h2>
+            </div>
+            <div className="steps">
+              <span>1. Browse</span>
+              <span>2. Add to cart</span>
+              <span>3. Pay on site</span>
+            </div>
+          </section>
+        </section>
+      )}
+
+      {activeTab === "products" && (
+        <section className="screen product-screen">
+          <header className="compact-header">
+            <div>
+              <p className="kicker">Products</p>
+              <h1>Shop List</h1>
+              <span>点开商品可看大图和详情</span>
+            </div>
+          </header>
+
+          <div className="product-layout">
+            <aside className="side-categories" aria-label="Product categories">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={category === activeCategory ? "active" : ""}
+                  type="button"
+                  onClick={() => setActiveCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </aside>
+
+            <section className="product-list" aria-label="Products">
+              {Object.entries(groupedProducts).map(([groupName, groupProducts]) => (
+                <div className="product-group" key={groupName}>
+                  <h2>{groupName}</h2>
+                  {groupProducts.map((product) => {
+                    const quantity = cart[product.id] || 0;
+                    const isAvailable = product.status === "available" && product.stock > 0;
+                    const reachedLimit = quantity >= product.stock;
+
+                    return (
+                      <article className="menu-item" key={product.id}>
+                        <button
+                          className="menu-image"
+                          type="button"
+                          onClick={() => setSelectedProduct(product)}
+                          aria-label={`View ${product.name}`}
+                        >
+                          <img src={product.images[0]} alt={product.name} />
+                        </button>
+                        <button
+                          className="menu-info"
+                          type="button"
+                          onClick={() => setSelectedProduct(product)}
+                        >
+                          <strong>{product.displayName || product.name}</strong>
+                          <span>{product.shortDesc}</span>
+                          <em>{priceLabel(product)}</em>
+                        </button>
+                        <button
+                          className="plus-button"
+                          type="button"
+                          disabled={!isAvailable || reachedLimit}
+                          onClick={() => addToCart(product.id)}
+                          aria-label={`Add ${product.name}`}
+                        >
+                          {quantity > 0 ? quantity : "+"}
+                        </button>
+                      </article>
+                    );
+                  })}
+                </div>
+              ))}
+            </section>
+          </div>
+
+          <button className="checkout-bar" type="button" onClick={() => setIsCartOpen(true)}>
+            <span>{cartCount > 0 ? `${cartCount} item${cartCount > 1 ? "s" : ""}` : "Cart is empty"}</span>
+            <strong>{total}r</strong>
+            <em>Confirm</em>
+          </button>
+        </section>
+      )}
+
+      {activeTab === "wishes" && <WishWall />}
+
+      <nav className="bottom-tabs" aria-label="Main navigation">
+        {TABS.map((tab) => (
+          <button
+            key={tab.id}
+            className={activeTab === tab.id ? "active" : ""}
+            type="button"
+            onClick={() => setActiveTab(tab.id)}
+          >
+            <span className={`tab-icon ${tab.id}`} aria-hidden="true" />
+            <strong>{tab.label}</strong>
+            <small>{tab.cn}</small>
+          </button>
+        ))}
+      </nav>
 
       <ProductModal
         product={selectedProduct}

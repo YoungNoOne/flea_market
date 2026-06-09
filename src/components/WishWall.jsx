@@ -2,6 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../lib/supabaseClient";
 
 const LOCAL_WISH_KEY = "flea-market-demo-wishes";
+const SAMPLE_WISHES = [
+  { id: "sample-1", nickname: "Mia", item_name: "Desk lamp", created_at: "2026-06-09T08:00:00.000Z" },
+  { id: "sample-2", nickname: "Alex", item_name: "Scientific calculator", created_at: "2026-06-09T08:03:00.000Z" },
+  { id: "sample-3", nickname: "Yuki", item_name: "Course textbooks", created_at: "2026-06-09T08:06:00.000Z" }
+];
 
 function loadLocalWishes() {
   try {
@@ -15,35 +20,36 @@ function saveLocalWishes(wishes) {
   localStorage.setItem(LOCAL_WISH_KEY, JSON.stringify(wishes));
 }
 
-function formatDate(value) {
-  if (!value) return "";
-  return new Intl.DateTimeFormat("zh-CN", {
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit"
-  }).format(new Date(value));
+function displayWish(wish) {
+  return `${wish.nickname || "Anonymous"}: ${wish.item_name}`;
 }
 
 export default function WishWall() {
   const [wishes, setWishes] = useState([]);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
   const [form, setForm] = useState({
     item_name: "",
-    budget: "",
-    description: "",
     nickname: "",
     contact: ""
   });
 
-  const sortedWishes = useMemo(
-    () =>
-      [...wishes].sort(
-        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-      ),
-    [wishes]
-  );
+  const visibleWishes = useMemo(() => {
+    const source = wishes.length > 0 ? wishes : SAMPLE_WISHES;
+    return [...source].sort(
+      (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
+  }, [wishes]);
+
+  const rows = useMemo(() => {
+    const repeated = [...visibleWishes, ...visibleWishes, ...visibleWishes];
+    return [
+      repeated.filter((_, index) => index % 3 === 0),
+      repeated.filter((_, index) => index % 3 === 1),
+      repeated.filter((_, index) => index % 3 === 2)
+    ];
+  }, [visibleWishes]);
 
   useEffect(() => {
     async function fetchWishes() {
@@ -54,11 +60,11 @@ export default function WishWall() {
 
       const { data, error } = await supabase
         .from("public_wishes")
-        .select("id,item_name,budget,description,nickname,is_public,created_at")
+        .select("id,item_name,nickname,created_at")
         .order("created_at", { ascending: false });
 
       if (error) {
-        setMessage("许愿墙暂时读取失败，请稍后再试。");
+        setMessage("Wish wall is temporarily unavailable.");
         return;
       }
 
@@ -80,15 +86,15 @@ export default function WishWall() {
     const itemName = form.item_name.trim();
 
     if (!itemName) {
-      setMessage("请先填写想要的商品。");
+      setMessage("Please enter what you want.");
       return;
     }
 
     const wish = {
       item_name: itemName,
-      budget: form.budget.trim(),
-      description: form.description.trim(),
-      nickname: form.nickname.trim() || "匿名同学",
+      budget: "",
+      description: "",
+      nickname: form.nickname.trim() || "Anonymous",
       contact: form.contact.trim(),
       is_public: true
     };
@@ -97,19 +103,17 @@ export default function WishWall() {
     setMessage("");
 
     if (isSupabaseConfigured) {
-      const { error } = await supabase
-        .from("wishes")
-        .insert(wish);
+      const { error } = await supabase.from("wishes").insert(wish);
 
       if (error) {
         setStatus("idle");
-        setMessage("提交失败，请检查网络后再试。");
+        setMessage("Submit failed. Please try again.");
         return;
       }
 
       const { data: latestWishes, error: fetchError } = await supabase
         .from("public_wishes")
-        .select("id,item_name,budget,description,nickname,is_public,created_at")
+        .select("id,item_name,nickname,created_at")
         .order("created_at", { ascending: false });
 
       if (fetchError) {
@@ -137,106 +141,104 @@ export default function WishWall() {
 
     setForm({
       item_name: "",
-      budget: "",
-      description: "",
       nickname: "",
       contact: ""
     });
     setStatus("idle");
-    setMessage("已提交到许愿墙。");
+    setMessage("Wish submitted.");
+    setIsFormOpen(false);
   }
 
   return (
-    <section className="wish-section" id="wishes">
-      <div className="section-heading">
-        <p className="eyebrow">Wish Wall</p>
-        <h2>许愿墙</h2>
-        <p>没有看到想要的东西，可以直接告诉摊主。联系方式只给摊主后台查看。</p>
+    <section className="screen wish-screen">
+      <header className="wish-header">
+        <div>
+          <p className="kicker">Wish Wall</p>
+          <h1>Make a wish</h1>
+          <span>许愿墙</span>
+        </div>
+      </header>
+
+      <div className="wish-flow" aria-label="Current wishes">
+        {rows.map((row, rowIndex) => (
+          <div className={`wish-row row-${rowIndex + 1}`} key={`row-${rowIndex + 1}`}>
+            {row.map((wish, wishIndex) => (
+              <span className="wish-chip" key={`${wish.id}-${wishIndex}`}>
+                <span className="heart-dot" aria-hidden="true" />
+                {displayWish(wish)}
+              </span>
+            ))}
+          </div>
+        ))}
       </div>
 
-      <form className="wish-form" onSubmit={submitWish}>
-        <label>
-          想要什么
-          <input
-            name="item_name"
-            value={form.item_name}
-            onChange={updateField}
-            placeholder="例如：计算器、台灯、教材"
-            maxLength={80}
-            required
-          />
-        </label>
-        <label>
-          预算
-          <input
-            name="budget"
-            value={form.budget}
-            onChange={updateField}
-            placeholder="例如：10r-20r"
-            maxLength={40}
-          />
-        </label>
-        <label className="full-field">
-          详细说明
-          <textarea
-            name="description"
-            value={form.description}
-            onChange={updateField}
-            placeholder="品牌、型号、课程名、可接受成色等"
-            rows="3"
-            maxLength={240}
-          />
-        </label>
-        <label>
-          昵称
-          <input
-            name="nickname"
-            value={form.nickname}
-            onChange={updateField}
-            placeholder="可匿名"
-            maxLength={40}
-          />
-        </label>
-        <label>
-          联系方式
-          <input
-            name="contact"
-            value={form.contact}
-            onChange={updateField}
-            placeholder="微信/邮箱，可选"
-            maxLength={80}
-          />
-        </label>
-        <button className="primary-button full-field" type="submit" disabled={status === "submitting"}>
-          {status === "submitting" ? "提交中..." : "提交许愿"}
-        </button>
-        {message && <p className="form-message full-field">{message}</p>}
-      </form>
+      <p className="wish-note">
+        Public wall only shows name and item. Contact details are visible to the seller in Supabase.
+      </p>
 
-      <div className="wish-list" aria-live="polite">
-        {sortedWishes.length === 0 ? (
-          <p className="empty-state">还没有公开许愿内容。</p>
-        ) : (
-          sortedWishes.map((wish) => (
-            <article className="wish-item" key={wish.id}>
-              <div>
-                <h3>{wish.item_name}</h3>
-                <p>{wish.description || "暂未补充详细说明。"}</p>
-              </div>
-              <div className="wish-meta">
-                <span>{wish.budget || "预算待定"}</span>
-                <span>{wish.nickname || "匿名同学"}</span>
-                <span>{formatDate(wish.created_at)}</span>
-              </div>
-            </article>
-          ))
-        )}
-      </div>
+      <button className="wish-cta" type="button" onClick={() => setIsFormOpen(true)}>
+        I want to wish
+        <span>我要许愿</span>
+      </button>
 
-      {!isSupabaseConfigured && (
-        <p className="config-note">
-          当前为本地演示模式。部署时配置 Supabase 环境变量后，许愿内容会写入后台数据库。
-        </p>
+      {message && <p className="inline-message">{message}</p>}
+
+      {isFormOpen && (
+        <div className="modal-backdrop" role="presentation" onClick={() => setIsFormOpen(false)}>
+          <form
+            className="wish-modal"
+            aria-label="Submit a wish"
+            onSubmit={submitWish}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              className="icon-button modal-close"
+              type="button"
+              onClick={() => setIsFormOpen(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <p className="kicker">New Wish</p>
+            <h2>What are you looking for?</h2>
+
+            <label>
+              Name
+              <input
+                name="nickname"
+                value={form.nickname}
+                onChange={updateField}
+                placeholder="Anonymous is OK"
+                maxLength={40}
+              />
+            </label>
+            <label>
+              Item
+              <input
+                name="item_name"
+                value={form.item_name}
+                onChange={updateField}
+                placeholder="Desk lamp, calculator, textbook..."
+                maxLength={80}
+                required
+              />
+            </label>
+            <label>
+              Contact
+              <input
+                name="contact"
+                value={form.contact}
+                onChange={updateField}
+                placeholder="WeChat / email, optional"
+                maxLength={80}
+              />
+            </label>
+
+            <button className="primary-button full-width" type="submit" disabled={status === "submitting"}>
+              {status === "submitting" ? "Submitting..." : "Submit wish"}
+            </button>
+          </form>
+        </div>
       )}
     </section>
   );

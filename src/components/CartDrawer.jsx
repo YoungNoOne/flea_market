@@ -1,3 +1,7 @@
+function priceLabel(item) {
+  return item.priceLabel || `${item.price}${item.currency || "r"}`;
+}
+
 export default function CartDrawer({
   isOpen,
   items,
@@ -21,16 +25,16 @@ export default function CartDrawer({
       >
         <div className="drawer-header">
           <div>
-            <p className="eyebrow">现场确认清单</p>
-            <h2 id="cart-title">已选商品</h2>
+            <p className="kicker">On-site checkout</p>
+            <h2 id="cart-title">Confirm Cart</h2>
           </div>
-          <button className="icon-button" type="button" onClick={onClose}>
+          <button className="icon-button" type="button" onClick={onClose} aria-label="Close">
             ×
           </button>
         </div>
 
         {items.length === 0 ? (
-          <p className="empty-state">还没有选择商品。</p>
+          <p className="empty-state">Cart is empty.</p>
         ) : (
           <div className="cart-list">
             {items.map((item) => (
@@ -38,8 +42,8 @@ export default function CartDrawer({
                 <img src={item.images[0]} alt={item.name} />
                 <div>
                   <h3>{item.name}</h3>
-                  <p>{item.priceLabel || `${item.price}${item.currency || "r"}`} / 件</p>
-                  <div className="quantity-control" aria-label={`${item.name}数量`}>
+                  <p>{priceLabel(item)} / item</p>
+                  <div className="quantity-control" aria-label={`${item.name} quantity`}>
                     <button type="button" onClick={() => onDecrease(item.id)}>
                       -
                     </button>
@@ -52,7 +56,7 @@ export default function CartDrawer({
                       +
                     </button>
                     <button className="text-button" type="button" onClick={() => onRemove(item.id)}>
-                      删除
+                      Remove
                     </button>
                   </div>
                 </div>
@@ -64,16 +68,16 @@ export default function CartDrawer({
 
         <div className="cart-summary">
           <div>
-            <span>合计</span>
+            <span>Total</span>
             <strong>{total}r</strong>
           </div>
-          <p>请将此页面给摊主确认，现场使用微信、支付宝或现金付款。</p>
+          <p>Show this page to the seller. Payment is confirmed on site by WeChat, Alipay or cash.</p>
           <button className="primary-button full-width" type="button" onClick={onClose}>
-            回到商品页
+            Back to products
           </button>
           {items.length > 0 && (
             <button className="ghost-button full-width" type="button" onClick={onClear}>
-              清空清单
+              Clear cart
             </button>
           )}
         </div>

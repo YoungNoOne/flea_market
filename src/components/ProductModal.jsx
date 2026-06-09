@@ -1,3 +1,7 @@
+function priceLabel(product) {
+  return product.priceLabel || `${product.price}${product.currency || "r"}`;
+}
+
 export default function ProductModal({ product, onClose, onAdd, quantity }) {
   if (!product) return null;
 
@@ -13,34 +17,17 @@ export default function ProductModal({ product, onClose, onAdd, quantity }) {
         aria-labelledby="product-modal-title"
         onClick={(event) => event.stopPropagation()}
       >
-        <button className="icon-button modal-close" type="button" onClick={onClose}>
+        <button className="icon-button modal-close" type="button" onClick={onClose} aria-label="Close">
           ×
         </button>
 
         <img className="modal-image" src={product.images[0]} alt={product.name} />
 
         <div className="modal-content">
-          <p className="product-category">{product.category}</p>
+          <p className="kicker">{product.category}</p>
           <h2 id="product-modal-title">{product.name}</h2>
-          <p className="modal-price">
-            {product.priceLabel || `${product.price}${product.currency || "r"}`}
-          </p>
-          <p>{product.detail}</p>
-
-          <dl className="detail-list">
-            <div>
-              <dt>成色</dt>
-              <dd>{product.condition}</dd>
-            </div>
-            <div>
-              <dt>规格</dt>
-              <dd>{product.spec}</dd>
-            </div>
-            <div>
-              <dt>备注</dt>
-              <dd>{product.note}</dd>
-            </div>
-          </dl>
+          {product.displayName && <span className="display-name">{product.displayName}</span>}
+          <p className="modal-price">{priceLabel(product)}</p>
 
           <button
             className="primary-button full-width"
@@ -48,8 +35,24 @@ export default function ProductModal({ product, onClose, onAdd, quantity }) {
             disabled={!isAvailable || reachedLimit}
             onClick={() => onAdd(product.id)}
           >
-            {isAvailable ? (reachedLimit ? "已加入清单" : "加入清单") : "已售出"}
+            {isAvailable ? (reachedLimit ? "Added to cart" : "Add to cart") : "Sold out"}
           </button>
+
+          <p>{product.detail}</p>
+          <dl className="detail-list">
+            <div>
+              <dt>Condition</dt>
+              <dd>{product.condition}</dd>
+            </div>
+            <div>
+              <dt>Spec</dt>
+              <dd>{product.spec}</dd>
+            </div>
+            <div>
+              <dt>Note</dt>
+              <dd>{product.note}</dd>
+            </div>
+          </dl>
         </div>
       </section>
     </div>
