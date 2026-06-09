@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import ProductImage from "./ProductImage.jsx";
 
 function priceLabel(product) {
   return product.priceLabel || `${product.price}${product.currency || "r"}`;
@@ -42,7 +43,7 @@ export default function ProductModal({ product, onClose, onAdd, quantity }) {
           ×
         </button>
 
-        <img className="modal-image" src={product.images[0]} alt={product.name} />
+        <ProductImage className="modal-image" src={product.images[0]} alt={product.name} />
 
         <div className="modal-content">
           <p className="kicker">{product.category}</p>

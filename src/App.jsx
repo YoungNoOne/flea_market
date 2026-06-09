@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import CartDrawer from "./components/CartDrawer.jsx";
+import ProductImage from "./components/ProductImage.jsx";
 import ProductModal from "./components/ProductModal.jsx";
 import WishWall from "./components/WishWall.jsx";
 import products from "./data/products.json";
@@ -144,7 +145,7 @@ export default function App() {
                 key={product.id}
                 onClick={() => setSelectedProduct(product)}
               >
-                <img src={product.images[0]} alt={product.name} />
+                <ProductImage src={product.images[0]} alt={product.name} />
                 <div>
                   <strong>{product.displayName || product.name}</strong>
                   <span>{product.shortDesc}</span>
@@ -228,7 +229,7 @@ export default function App() {
                           onClick={() => setSelectedProduct(product)}
                           aria-label={`View ${product.name}`}
                         >
-                          <img src={product.images[0]} alt={product.name} />
+                          <ProductImage src={product.images[0]} alt={product.name} />
                         </button>
                         <button
                           className="menu-info"

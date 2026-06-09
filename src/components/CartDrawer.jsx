@@ -1,3 +1,5 @@
+import ProductImage from "./ProductImage.jsx";
+
 function priceLabel(item) {
   return item.priceLabel || `${item.price}${item.currency || "r"}`;
 }
@@ -44,7 +46,7 @@ export default function CartDrawer({
           <div className="cart-list">
             {items.map((item) => (
               <article className="cart-item" key={item.id}>
-                <img src={item.images[0]} alt={item.name} />
+                <ProductImage src={item.images[0]} alt={item.name} />
                 <div>
                   <h3>{item.displayName || item.name}</h3>
                   <p>{priceLabel(item)} / 件</p>
