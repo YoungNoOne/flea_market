@@ -2,11 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../lib/supabaseClient";
 
 const LOCAL_WISH_KEY = "flea-market-demo-wishes";
-const SAMPLE_WISHES = [
-  { id: "sample-1", nickname: "Mia", item_name: "Desk lamp", created_at: "2026-06-09T08:00:00.000Z" },
-  { id: "sample-2", nickname: "Alex", item_name: "Scientific calculator", created_at: "2026-06-09T08:03:00.000Z" },
-  { id: "sample-3", nickname: "Yuki", item_name: "Course textbooks", created_at: "2026-06-09T08:06:00.000Z" }
-];
+const WISH_LANES = 6;
 
 function loadLocalWishes() {
   try {
@@ -21,7 +17,7 @@ function saveLocalWishes(wishes) {
 }
 
 function displayWish(wish) {
-  return `${wish.nickname || "Anonymous"}: ${wish.item_name}`;
+  return `${wish.nickname || "匿名"}: ${wish.item_name}`;
 }
 
 export default function WishWall() {
@@ -36,20 +32,23 @@ export default function WishWall() {
   });
 
   const visibleWishes = useMemo(() => {
-    const source = wishes.length > 0 ? wishes : SAMPLE_WISHES;
-    return [...source].sort(
+    return [...wishes].sort(
       (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
   }, [wishes]);
 
-  const rows = useMemo(() => {
-    const repeated = [...visibleWishes, ...visibleWishes, ...visibleWishes];
-    return [
-      repeated.filter((_, index) => index % 3 === 0),
-      repeated.filter((_, index) => index % 3 === 1),
-      repeated.filter((_, index) => index % 3 === 2)
-    ];
-  }, [visibleWishes]);
+  const animationDuration = Math.max(24, visibleWishes.length * 4);
+
+  useEffect(() => {
+    if (!isFormOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isFormOpen]);
 
   useEffect(() => {
     async function fetchWishes() {
@@ -64,7 +63,7 @@ export default function WishWall() {
         .order("created_at", { ascending: false });
 
       if (error) {
-        setMessage("Wish wall is temporarily unavailable.");
+        setMessage("许愿墙暂时读取失败，请稍后再试。");
         return;
       }
 
@@ -86,7 +85,7 @@ export default function WishWall() {
     const itemName = form.item_name.trim();
 
     if (!itemName) {
-      setMessage("Please enter what you want.");
+      setMessage("请填写想要的物品。");
       return;
     }
 
@@ -94,7 +93,7 @@ export default function WishWall() {
       item_name: itemName,
       budget: "",
       description: "",
-      nickname: form.nickname.trim() || "Anonymous",
+      nickname: form.nickname.trim() || "匿名",
       contact: form.contact.trim(),
       is_public: true
     };
@@ -107,7 +106,7 @@ export default function WishWall() {
 
       if (error) {
         setStatus("idle");
-        setMessage("Submit failed. Please try again.");
+        setMessage("提交失败，请稍后再试。");
         return;
       }
 
@@ -145,7 +144,7 @@ export default function WishWall() {
       contact: ""
     });
     setStatus("idle");
-    setMessage("Wish submitted.");
+    setMessage("许愿已提交。");
     setIsFormOpen(false);
   }
 
@@ -154,31 +153,39 @@ export default function WishWall() {
       <header className="wish-header">
         <div>
           <p className="kicker">Wish Wall</p>
-          <h1>Make a wish</h1>
-          <span>许愿墙</span>
+          <h1>许愿墙</h1>
+          <span>Make a wish</span>
         </div>
       </header>
 
       <div className="wish-flow" aria-label="Current wishes">
-        {rows.map((row, rowIndex) => (
-          <div className={`wish-row row-${rowIndex + 1}`} key={`row-${rowIndex + 1}`}>
-            {row.map((wish, wishIndex) => (
-              <span className="wish-chip" key={`${wish.id}-${wishIndex}`}>
-                <span className="heart-dot" aria-hidden="true" />
-                {displayWish(wish)}
-              </span>
-            ))}
-          </div>
-        ))}
+        {visibleWishes.length === 0 ? (
+          <p className="wish-empty">还没有许愿内容，写下第一个想要的东西吧。</p>
+        ) : (
+          visibleWishes.map((wish, index) => (
+            <span
+              className="wish-chip"
+              key={wish.id}
+              style={{
+                "--lane": index % WISH_LANES,
+                "--delay": `${-(index * (animationDuration / Math.max(visibleWishes.length, 1)) + 2)}s`,
+                "--duration": `${animationDuration}s`
+              }}
+            >
+              <span className="heart-dot" aria-hidden="true" />
+              {displayWish(wish)}
+            </span>
+          ))
+        )}
       </div>
 
       <p className="wish-note">
-        Public wall only shows name and item. Contact details are visible to the seller in Supabase.
+        页面只展示“姓名: 物品”。联系方式只会在后台给摊主查看，不会公开显示。
       </p>
 
       <button className="wish-cta" type="button" onClick={() => setIsFormOpen(true)}>
-        I want to wish
-        <span>我要许愿</span>
+        我要许愿
+        <span>Make a wish</span>
       </button>
 
       {message && <p className="inline-message">{message}</p>}
@@ -200,42 +207,42 @@ export default function WishWall() {
               ×
             </button>
             <p className="kicker">New Wish</p>
-            <h2>What are you looking for?</h2>
+            <h2>想要什么？</h2>
 
             <label>
-              Name
+              昵称
               <input
                 name="nickname"
                 value={form.nickname}
                 onChange={updateField}
-                placeholder="Anonymous is OK"
+                placeholder="可匿名"
                 maxLength={40}
               />
             </label>
             <label>
-              Item
+              想要的物品
               <input
                 name="item_name"
                 value={form.item_name}
                 onChange={updateField}
-                placeholder="Desk lamp, calculator, textbook..."
+                placeholder="台灯、计算器、教材..."
                 maxLength={80}
                 required
               />
             </label>
             <label>
-              Contact
+              联系方式
               <input
                 name="contact"
                 value={form.contact}
                 onChange={updateField}
-                placeholder="WeChat / email, optional"
+                placeholder="微信 / 邮箱，可选"
                 maxLength={80}
               />
             </label>
 
             <button className="primary-button full-width" type="submit" disabled={status === "submitting"}>
-              {status === "submitting" ? "Submitting..." : "Submit wish"}
+              {status === "submitting" ? "提交中..." : "提交许愿"}
             </button>
           </form>
         </div>

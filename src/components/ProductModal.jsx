@@ -1,8 +1,21 @@
+import { useEffect } from "react";
+
 function priceLabel(product) {
   return product.priceLabel || `${product.price}${product.currency || "r"}`;
 }
 
 export default function ProductModal({ product, onClose, onAdd, quantity }) {
+  useEffect(() => {
+    if (!product) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [product]);
+
   if (!product) return null;
 
   const isAvailable = product.status === "available" && product.stock > 0;
@@ -25,8 +38,8 @@ export default function ProductModal({ product, onClose, onAdd, quantity }) {
 
         <div className="modal-content">
           <p className="kicker">{product.category}</p>
-          <h2 id="product-modal-title">{product.name}</h2>
-          {product.displayName && <span className="display-name">{product.displayName}</span>}
+          <h2 id="product-modal-title">{product.displayName || product.name}</h2>
+          {product.name && <span className="display-name">{product.name}</span>}
           <p className="modal-price">{priceLabel(product)}</p>
 
           <button
@@ -35,21 +48,21 @@ export default function ProductModal({ product, onClose, onAdd, quantity }) {
             disabled={!isAvailable || reachedLimit}
             onClick={() => onAdd(product.id)}
           >
-            {isAvailable ? (reachedLimit ? "Added to cart" : "Add to cart") : "Sold out"}
+            {isAvailable ? (reachedLimit ? "已加入清单" : "加入清单") : "已售出"}
           </button>
 
           <p>{product.detail}</p>
           <dl className="detail-list">
             <div>
-              <dt>Condition</dt>
+              <dt>成色</dt>
               <dd>{product.condition}</dd>
             </div>
             <div>
-              <dt>Spec</dt>
+              <dt>规格</dt>
               <dd>{product.spec}</dd>
             </div>
             <div>
-              <dt>Note</dt>
+              <dt>备注</dt>
               <dd>{product.note}</dd>
             </div>
           </dl>

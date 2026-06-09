@@ -6,9 +6,9 @@ import products from "./data/products.json";
 
 const CART_KEY = "flea-market-cart";
 const TABS = [
-  { id: "home", label: "Home", cn: "首页" },
-  { id: "products", label: "Products", cn: "商品" },
-  { id: "wishes", label: "Wish Wall", cn: "许愿墙" }
+  { id: "home", label: "首页", en: "Home" },
+  { id: "products", label: "商品", en: "Products" },
+  { id: "wishes", label: "许愿墙", en: "Wish Wall" }
 ];
 
 function readStoredCart() {
@@ -25,13 +25,13 @@ function priceLabel(product) {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("全部");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cart, setCart] = useState(readStoredCart);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const categories = useMemo(
-    () => ["All", ...Array.from(new Set(products.map((product) => product.category)))],
+    () => ["全部", ...Array.from(new Set(products.map((product) => product.category)))],
     []
   );
 
@@ -41,13 +41,13 @@ export default function App() {
   );
 
   const filteredProducts = useMemo(() => {
-    if (activeCategory === "All") return products;
+    if (activeCategory === "全部") return products;
     return products.filter((product) => product.category === activeCategory);
   }, [activeCategory]);
 
   const groupedProducts = useMemo(() => {
     return filteredProducts.reduce((groups, product) => {
-      const groupName = product.group || product.category;
+      const groupName = product.category;
       return {
         ...groups,
         [groupName]: [...(groups[groupName] || []), product]
@@ -122,12 +122,12 @@ export default function App() {
         <section className="screen home-screen">
           <header className="screen-header">
             <div>
-              <p className="kicker">BUPT Flea Market</p>
-              <h1>Selected Products</h1>
-              <span>精选产品</span>
+              <p className="kicker">Selected Products</p>
+              <h1>精选商品</h1>
+              <span>BUPT 跳蚤市场</span>
             </div>
-            <button className="round-button" type="button" onClick={() => showProducts("All")}>
-              Shop
+            <button className="round-button" type="button" onClick={() => showProducts("全部")}>
+              全部
             </button>
           </header>
 
@@ -141,22 +141,22 @@ export default function App() {
               >
                 <img src={product.images[0]} alt={product.name} />
                 <div>
-                  <strong>{product.name}</strong>
+                  <strong>{product.displayName || product.name}</strong>
                   <span>{product.shortDesc}</span>
                 </div>
               </button>
             ))}
           </div>
 
-          <button className="wide-promo" type="button" onClick={() => showProducts("Daily")}>
-            <span>Campus Picks</span>
-            <strong>Useful finds for study life</strong>
+          <button className="wide-promo" type="button" onClick={() => showProducts("生活用品")}>
+            <span>校园精选</span>
+            <strong>Study life picks</strong>
           </button>
 
           <section className="home-block">
             <div className="block-title">
               <p>Quick Browse</p>
-              <h2>Categories</h2>
+              <h2>按分类浏览</h2>
             </div>
             <div className="category-pills">
               {categories.slice(1).map((category) => (
@@ -170,12 +170,12 @@ export default function App() {
           <section className="home-block">
             <div className="block-title">
               <p>How it works</p>
-              <h2>现场确认</h2>
+              <h2>现场确认付款</h2>
             </div>
             <div className="steps">
-              <span>1. Browse</span>
-              <span>2. Add to cart</span>
-              <span>3. Pay on site</span>
+              <span>1. 先看商品详情</span>
+              <span>2. 加入清单看总价</span>
+              <span>3. 到摊位现场付款</span>
             </div>
           </section>
         </section>
@@ -186,8 +186,8 @@ export default function App() {
           <header className="compact-header">
             <div>
               <p className="kicker">Products</p>
-              <h1>Shop List</h1>
-              <span>点开商品可看大图和详情</span>
+              <h1>商品列表</h1>
+              <span>左侧分类，右侧加购</span>
             </div>
           </header>
 
@@ -251,9 +251,9 @@ export default function App() {
           </div>
 
           <button className="checkout-bar" type="button" onClick={() => setIsCartOpen(true)}>
-            <span>{cartCount > 0 ? `${cartCount} item${cartCount > 1 ? "s" : ""}` : "Cart is empty"}</span>
+            <span>{cartCount > 0 ? `${cartCount} 件商品` : "清单为空"}</span>
             <strong>{total}r</strong>
-            <em>Confirm</em>
+            <em>确认</em>
           </button>
         </section>
       )}
@@ -270,7 +270,7 @@ export default function App() {
           >
             <span className={`tab-icon ${tab.id}`} aria-hidden="true" />
             <strong>{tab.label}</strong>
-            <small>{tab.cn}</small>
+            <small>{tab.en}</small>
           </button>
         ))}
       </nav>

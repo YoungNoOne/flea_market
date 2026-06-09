@@ -26,7 +26,7 @@ export default function CartDrawer({
         <div className="drawer-header">
           <div>
             <p className="kicker">On-site checkout</p>
-            <h2 id="cart-title">Confirm Cart</h2>
+            <h2 id="cart-title">确认清单</h2>
           </div>
           <button className="icon-button" type="button" onClick={onClose} aria-label="Close">
             ×
@@ -34,7 +34,7 @@ export default function CartDrawer({
         </div>
 
         {items.length === 0 ? (
-          <p className="empty-state">Cart is empty.</p>
+          <p className="empty-state">清单里还没有商品。</p>
         ) : (
           <div className="cart-list">
             {items.map((item) => (
@@ -42,8 +42,8 @@ export default function CartDrawer({
                 <img src={item.images[0]} alt={item.name} />
                 <div>
                   <h3>{item.name}</h3>
-                  <p>{priceLabel(item)} / item</p>
-                  <div className="quantity-control" aria-label={`${item.name} quantity`}>
+                  <p>{priceLabel(item)} / 件</p>
+                  <div className="quantity-control" aria-label={`${item.name} 数量`}>
                     <button type="button" onClick={() => onDecrease(item.id)}>
                       -
                     </button>
@@ -56,7 +56,7 @@ export default function CartDrawer({
                       +
                     </button>
                     <button className="text-button" type="button" onClick={() => onRemove(item.id)}>
-                      Remove
+                      删除
                     </button>
                   </div>
                 </div>
@@ -68,16 +68,16 @@ export default function CartDrawer({
 
         <div className="cart-summary">
           <div>
-            <span>Total</span>
+            <span>合计</span>
             <strong>{total}r</strong>
           </div>
-          <p>Show this page to the seller. Payment is confirmed on site by WeChat, Alipay or cash.</p>
+          <p>请把这个页面给摊主确认，现场使用微信、支付宝或现金付款。</p>
           <button className="primary-button full-width" type="button" onClick={onClose}>
-            Back to products
+            返回商品页
           </button>
           {items.length > 0 && (
             <button className="ghost-button full-width" type="button" onClick={onClear}>
-              Clear cart
+              清空清单
             </button>
           )}
         </div>
