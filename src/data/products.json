@@ -1,0 +1,18 @@
+[
+  {
+    "id": "keyboard-001",
+    "name": "罗技 K380",
+    "category": "数码",
+    "price": 70,
+    "currency": "r",
+    "priceLabel": "70r",
+    "shortDesc": "轻便蓝牙键盘，适合平板、电脑和日常学习使用。",
+    "detail": "罗技 K380 蓝牙键盘，体积轻便，适合宿舍、图书馆或课堂笔记场景。按键反馈正常，适合连接平板、电脑或手机进行打字。",
+    "condition": "二手，功能正常",
+    "spec": "蓝牙连接，多设备键盘",
+    "note": "现场看货确认后付款。",
+    "images": ["/products/logitech-k380.jpg"],
+    "stock": 1,
+    "status": "available"
+  }
+]
