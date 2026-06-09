@@ -23,6 +23,11 @@ function priceLabel(product) {
   return product.priceLabel || `${product.price}${product.currency || "r"}`;
 }
 
+function formatPrice(value) {
+  const rounded = Math.round((Number(value) + Number.EPSILON) * 100) / 100;
+  return String(rounded);
+}
+
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [activeCategory, setActiveCategory] = useState("全部");
@@ -148,9 +153,9 @@ export default function App() {
             ))}
           </div>
 
-          <button className="wide-promo" type="button" onClick={() => showProducts("生活用品")}>
+          <button className="wide-promo" type="button" onClick={() => showProducts("数码配件")}>
             <span>校园精选</span>
-            <strong>Study life picks</strong>
+            <strong>Digital picks</strong>
           </button>
 
           <section className="home-block">
@@ -212,6 +217,7 @@ export default function App() {
                   {groupProducts.map((product) => {
                     const quantity = cart[product.id] || 0;
                     const isAvailable = product.status === "available" && product.stock > 0;
+                    const isContact = product.status === "contact";
                     const reachedLimit = quantity >= product.stock;
 
                     return (
@@ -234,13 +240,13 @@ export default function App() {
                           <em>{priceLabel(product)}</em>
                         </button>
                         <button
-                          className="plus-button"
+                          className={`plus-button ${isContact ? "contact-button" : ""}`}
                           type="button"
                           disabled={!isAvailable || reachedLimit}
                           onClick={() => addToCart(product.id)}
                           aria-label={`Add ${product.name}`}
                         >
-                          {quantity > 0 ? quantity : "+"}
+                          {isContact ? "问" : quantity > 0 ? quantity : "+"}
                         </button>
                       </article>
                     );
@@ -252,7 +258,7 @@ export default function App() {
 
           <button className="checkout-bar" type="button" onClick={() => setIsCartOpen(true)}>
             <span>{cartCount > 0 ? `${cartCount} 件商品` : "清单为空"}</span>
-            <strong>{total}r</strong>
+            <strong>{formatPrice(total)}r</strong>
             <em>确认</em>
           </button>
         </section>

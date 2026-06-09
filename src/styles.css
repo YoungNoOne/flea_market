@@ -380,6 +380,11 @@ img {
   font-weight: 800;
 }
 
+.plus-button.contact-button {
+  font-size: 14px;
+  font-weight: 900;
+}
+
 .checkout-bar {
   position: fixed;
   right: max(14px, calc((100vw - 430px) / 2 + 14px));

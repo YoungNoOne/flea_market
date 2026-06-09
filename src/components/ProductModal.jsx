@@ -19,7 +19,15 @@ export default function ProductModal({ product, onClose, onAdd, quantity }) {
   if (!product) return null;
 
   const isAvailable = product.status === "available" && product.stock > 0;
+  const isContact = product.status === "contact";
   const reachedLimit = quantity >= product.stock;
+  const actionLabel = isContact
+    ? "请询问摊主"
+    : isAvailable
+      ? reachedLimit
+        ? "已加入清单"
+        : "加入清单"
+      : "暂不可加购";
 
   return (
     <div className="modal-backdrop" role="presentation" onClick={onClose}>
@@ -39,19 +47,21 @@ export default function ProductModal({ product, onClose, onAdd, quantity }) {
         <div className="modal-content">
           <p className="kicker">{product.category}</p>
           <h2 id="product-modal-title">{product.displayName || product.name}</h2>
-          {product.name && <span className="display-name">{product.name}</span>}
+          {product.displayName && product.displayName !== product.name && (
+            <span className="display-name">{product.name}</span>
+          )}
           <p className="modal-price">{priceLabel(product)}</p>
 
           <button
             className="primary-button full-width"
             type="button"
-            disabled={!isAvailable || reachedLimit}
+            disabled={isContact || !isAvailable || reachedLimit}
             onClick={() => onAdd(product.id)}
           >
-            {isAvailable ? (reachedLimit ? "已加入清单" : "加入清单") : "已售出"}
+            {actionLabel}
           </button>
 
-          <p>{product.detail}</p>
+          {product.detail && <p>{product.detail}</p>}
           <dl className="detail-list">
             <div>
               <dt>成色</dt>

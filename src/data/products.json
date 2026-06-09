@@ -1,54 +1,931 @@
 [
   {
-    "id": "keyboard-001",
-    "name": "Logitech K380",
-    "displayName": "罗技 K380",
-    "category": "数码",
+    "id": "cambridge-ielts-11-19",
+    "name": "剑雅真题纸质版 11-19",
+    "category": "雅思/英语",
+    "price": 3,
+    "currency": "r",
+    "priceLabel": "3r/本",
+    "shortDesc": "全新，可单买，3r/本。",
+    "detail": "剑桥雅思真题纸质版 11-19，全新未使用，可按单本购买。",
+    "condition": "全新",
+    "spec": "纸质版 11-19，单本出售",
+    "note": "如需多本，请现场确认具体版本。",
+    "images": [
+      "/products/books/cambridge-ielts-11-19.jpg"
+    ],
+    "stock": 9,
+    "status": "available",
+    "featured": true
+  },
+  {
+    "id": "ielts-listening-179",
+    "name": "学为贵雅思听力179",
+    "category": "雅思/英语",
+    "price": 9.9,
+    "currency": "r",
+    "priceLabel": "9.9r",
+    "shortDesc": "全新雅思听力资料。",
+    "detail": "学为贵雅思听力179，全新。",
+    "condition": "全新",
+    "spec": "雅思听力资料",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/ielts-listening-179.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "ielts-speaking",
+    "name": "学为贵雅思口语真经",
+    "category": "雅思/英语",
+    "price": 9.9,
+    "currency": "r",
+    "priceLabel": "9.9r",
+    "shortDesc": "全新雅思口语资料。",
+    "detail": "学为贵雅思口语真经，全新。",
+    "condition": "全新",
+    "spec": "雅思口语资料",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/ielts-speaking.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "ielts-writing",
+    "name": "学为贵雅思写作真经",
+    "category": "雅思/英语",
+    "price": 9.9,
+    "currency": "r",
+    "priceLabel": "9.9r",
+    "shortDesc": "全新雅思写作资料。",
+    "detail": "学为贵雅思写作真经，全新。",
+    "condition": "全新",
+    "spec": "雅思写作资料",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/ielts-writing.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "ielts-playing-cards",
+    "name": "雅思扑克一副",
+    "category": "雅思/英语",
+    "price": 6.6,
+    "currency": "r",
+    "priceLabel": "6.6r",
+    "shortDesc": "雅思主题扑克一副。",
+    "detail": "雅思主题扑克一副。",
+    "condition": "请现场确认",
+    "spec": "一副",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/ielts-playing-cards.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "nec-c-2023-set",
+    "name": "2023全国大英赛C类资料包",
+    "category": "雅思/英语",
+    "price": 9.9,
+    "currency": "r",
+    "priceLabel": "9.9r",
+    "shortDesc": "一本通、高频词汇、真题详解打包。",
+    "detail": "2023全国大学生英语竞赛 C 类资料包，包含一本通、高频词汇和真题详解，打包出售。",
+    "condition": "请现场确认",
+    "spec": "大英赛 C 类资料包",
+    "note": "打包 9.9r。",
+    "images": [
+      "/products/books/nec-c-2023-set.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "cet6-spark-2023",
+    "name": "星火六级真题 2023版",
+    "category": "雅思/英语",
+    "price": 5,
+    "currency": "r",
+    "priceLabel": "5r",
+    "shortDesc": "2023版，写过一点点。",
+    "detail": "星火六级真题 2023 版，写过一点点。",
+    "condition": "写过一点点",
+    "spec": "六级真题 2023 版",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/cet6-spark-2023.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "information-theory-solutions",
+    "name": "信息论基础习题解答",
+    "category": "专业课资料",
+    "price": 3,
+    "currency": "r",
+    "priceLabel": "3r",
+    "shortDesc": "有少量笔记。",
+    "detail": "信息论基础习题解答，有少量笔记。",
+    "condition": "有少量笔记",
+    "spec": "习题解答",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/information-theory-solutions.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "bupt-communication-principles-exercises",
+    "name": "北邮通原习题集",
+    "category": "专业课资料",
+    "price": 5,
+    "currency": "r",
+    "priceLabel": "5r",
+    "shortDesc": "全新通原习题集。",
+    "detail": "北邮通信原理习题集，全新。",
+    "condition": "全新",
+    "spec": "通信原理习题集",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/bupt-communication-principles-exercises.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "electric-circuits-english",
+    "name": "电路分析基础英文版",
+    "category": "专业课资料",
+    "price": 10,
+    "currency": "r",
+    "priceLabel": "10r",
+    "shortDesc": "英文版，少量笔记。",
+    "detail": "电路分析基础英文版，少量笔记。",
+    "condition": "少量笔记",
+    "spec": "英文版教材",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/electric-circuits-english.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "information-theory-textbook",
+    "name": "信息论基础",
+    "category": "专业课资料",
+    "price": 8.8,
+    "currency": "r",
+    "priceLabel": "8.8r",
+    "shortDesc": "有笔记，原备注：考了97分。",
+    "detail": "信息论基础教材，有笔记。原备注：考了97分。",
+    "condition": "有笔记",
+    "spec": "信息论基础教材",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/information-theory-textbook.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "probability-exercises",
+    "name": "概率论习题",
+    "category": "专业课资料",
+    "price": 6.6,
+    "currency": "r",
+    "priceLabel": "6.6r",
+    "shortDesc": "全新概率论习题。",
+    "detail": "概率论习题，全新。",
+    "condition": "全新",
+    "spec": "概率论习题资料",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/probability-exercises.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "electromagnetic-fields",
+    "name": "电磁场与电磁波",
+    "category": "专业课资料",
+    "price": 3,
+    "currency": "r",
+    "priceLabel": "3r",
+    "shortDesc": "少量笔记。",
+    "detail": "电磁场与电磁波教材，少量笔记。",
+    "condition": "少量笔记",
+    "spec": "课程教材",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/electromagnetic-fields.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "digital-signal-processing",
+    "name": "数字信号处理",
+    "category": "专业课资料",
+    "price": 6.6,
+    "currency": "r",
+    "priceLabel": "6.6r",
+    "shortDesc": "全新数字信号处理教材。",
+    "detail": "数字信号处理教材，全新。",
+    "condition": "全新",
+    "spec": "课程教材",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/digital-signal-processing.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "international-college-materials",
+    "name": "国际学院资料/往年题/笔记",
+    "category": "专业课资料",
+    "price": 0,
+    "currency": "r",
+    "priceLabel": "询问摊主",
+    "shortDesc": "纸质版+电子版，详情询问摊主。",
+    "detail": "还有国际学院各科资料、往年题（纸质版+电子版）和笔记，包括满分电磁场电磁波笔记、99分通原笔记、96概率论笔记等，详情可以询问摊主。",
+    "condition": "按资料现场确认",
+    "spec": "课程资料、往年题和笔记",
+    "note": "该项无固定标价，请现场询问摊主。",
+    "images": [
+      "/products/books/international-college-materials.jpg"
+    ],
+    "stock": 0,
+    "status": "contact",
+    "featured": false
+  },
+  {
+    "id": "the-republic",
+    "name": "理想国",
+    "category": "笔记本/书",
+    "price": 10,
+    "currency": "r",
+    "priceLabel": "10r",
+    "shortDesc": "全新。",
+    "detail": "《理想国》，全新。",
+    "condition": "全新",
+    "spec": "书籍",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/the-republic.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "pocket-blank-notebook",
+    "name": "手掌大空白笔记本",
+    "category": "笔记本/书",
+    "price": 1,
+    "currency": "r",
+    "priceLabel": "1r",
+    "shortDesc": "手掌大，里面是空白页。",
+    "detail": "手掌大小的笔记本，内页为空白页。",
+    "condition": "请现场确认",
+    "spec": "空白页笔记本",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/pocket-blank-notebook.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "chiikawa-lined-notebook",
+    "name": "chiikawa横线本",
+    "category": "笔记本/书",
+    "price": 5,
+    "currency": "r",
+    "priceLabel": "5r",
+    "shortDesc": "内页有 chiikawa 图案，约60页。",
+    "detail": "chiikawa 横线本，内页有 chiikawa 图案，大约60页。",
+    "condition": "请现场确认",
+    "spec": "横线本，约60页",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/chiikawa-lined-notebook.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "a5-notebook",
+    "name": "A5笔记本",
+    "category": "笔记本/书",
+    "price": 0.1,
+    "currency": "r",
+    "priceLabel": "0.1r",
+    "shortDesc": "30页，全新。",
+    "detail": "A5 笔记本，30页，全新。",
+    "condition": "全新",
+    "spec": "A5，30页",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/a5-notebook.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "dog-lined-notebook",
+    "name": "小狗横线本",
+    "category": "笔记本/书",
+    "price": 6.6,
+    "currency": "r",
+    "priceLabel": "6.6r",
+    "shortDesc": "比较厚，估计有一百来页。",
+    "detail": "小狗横线本，比较厚，估计有一百来页。",
+    "condition": "请现场确认",
+    "spec": "横线本，约一百来页",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/dog-lined-notebook.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "logitech-k380",
+    "name": "罗技 K380",
+    "category": "数码配件",
     "price": 70,
     "currency": "r",
     "priceLabel": "70r",
-    "shortDesc": "轻便蓝牙键盘，适合平板、电脑和日常学习。",
-    "detail": "罗技 K380 蓝牙键盘，体积轻便，适合宿舍、图书馆或课堂笔记场景。按键反馈正常，适合连接平板、电脑或手机进行打字。",
-    "condition": "二手，功能正常",
-    "spec": "蓝牙键盘，支持多设备连接",
+    "shortDesc": "轻便蓝牙键盘，适合平板或电脑使用。",
+    "detail": "罗技 K380 蓝牙键盘，适合连接平板、电脑或手机进行打字，具体成色请现场确认。",
+    "condition": "二手，功能请现场确认",
+    "spec": "蓝牙键盘",
     "note": "请现场确认后付款。",
-    "images": ["/products/logitech-k380.jpg"],
+    "images": [
+      "/products/logitech-k380.jpg"
+    ],
     "stock": 1,
     "status": "available",
     "featured": true
   },
   {
-    "id": "massager-001",
-    "name": "SKG Neck Massager",
-    "displayName": "SKG 颈部按摩仪",
-    "category": "生活用品",
-    "price": 45,
+    "id": "ipad-rotating-stand",
+    "name": "iPad旋转支架",
+    "category": "数码配件",
+    "price": 5,
     "currency": "r",
-    "priceLabel": "45r",
-    "shortDesc": "便携颈部按摩仪，适合学习间隙放松。",
-    "detail": "SKG 颈部按摩仪，适合学习久坐后放松颈部。图片为当前实物，具体功能和成色请现场确认。",
-    "condition": "二手，具体成色请现场确认",
-    "spec": "便携颈部按摩仪",
-    "note": "价格和功能请现场确认。",
-    "images": ["/products/skg-neck-massager.jpg"],
+    "priceLabel": "5r",
+    "shortDesc": "iPad 旋转支架。",
+    "detail": "iPad 旋转支架。",
+    "condition": "请现场确认",
+    "spec": "平板支架",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/digital/ipad-rotating-stand.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "maicong-laptop-stand",
+    "name": "迈从电脑支架",
+    "category": "数码配件",
+    "price": 10,
+    "currency": "r",
+    "priceLabel": "10r",
+    "shortDesc": "合金材质，非常结实，有点重。",
+    "detail": "迈从电脑支架，合金材质，非常结实，有点重。",
+    "condition": "请现场确认",
+    "spec": "电脑支架，合金材质",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/digital/maicong-laptop-stand.jpg"
+    ],
     "stock": 1,
     "status": "available",
     "featured": true
   },
   {
-    "id": "tea-001",
-    "name": "Cambridge Breakfast Tea",
-    "displayName": "剑桥早餐茶礼盒",
-    "category": "食品饮品",
+    "id": "logitech-g304-mouse",
+    "name": "罗技 G304 鼠标",
+    "category": "数码配件",
+    "price": 59,
+    "currency": "r",
+    "priceLabel": "59r",
+    "shortDesc": "自用一年。",
+    "detail": "罗技 G304 鼠标，自用一年。",
+    "condition": "自用一年",
+    "spec": "无线鼠标",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/digital/logitech-g304-mouse.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "ugreen-usb-hub",
+    "name": "绿联拓展坞",
+    "category": "数码配件",
+    "price": 70,
+    "currency": "r",
+    "priceLabel": "70r",
+    "shortDesc": "用过一两次。",
+    "detail": "绿联拓展坞，用过一两次。",
+    "condition": "用过一两次",
+    "spec": "拓展坞",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/digital/ugreen-usb-hub.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": true
+  },
+  {
+    "id": "ugreen-t6s-earbuds",
+    "name": "绿联蓝牙耳机 T6s",
+    "category": "数码配件",
+    "price": 99,
+    "currency": "r",
+    "priceLabel": "99r",
+    "shortDesc": "没怎么用过，配三副全新耳塞。",
+    "detail": "绿联蓝牙耳机 T6s，没怎么用过，降噪效果还不错，配套三副全新的耳塞。",
+    "condition": "没怎么用过",
+    "spec": "蓝牙耳机，配三副全新耳塞",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/digital/ugreen-t6s-earbuds.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "two-tier-desk-shelf",
+    "name": "桌面双层储物架",
+    "category": "收纳/日用",
+    "price": 10,
+    "currency": "r",
+    "priceLabel": "10r",
+    "shortDesc": "板子可自由拆卸。",
+    "detail": "桌面双层储物架，板子可自由拆卸。",
+    "condition": "请现场确认",
+    "spec": "双层储物架",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/two-tier-desk-shelf.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "stemmed-glass",
+    "name": "高脚玻璃杯",
+    "category": "收纳/日用",
+    "price": 3,
+    "currency": "r",
+    "priceLabel": "3r",
+    "shortDesc": "高脚玻璃杯。",
+    "detail": "高脚玻璃杯。",
+    "condition": "请现场确认",
+    "spec": "玻璃杯",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/stemmed-glass.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "stainless-lunch-box",
+    "name": "不锈钢保温饭盒",
+    "category": "收纳/日用",
+    "price": 9.9,
+    "currency": "r",
+    "priceLabel": "9.9r",
+    "shortDesc": "蓝色三合一结构，已洗净。",
+    "detail": "不锈钢保温饭盒，实物为蓝色，三合一结构，平时只当做洗水果容器用，已洗净。",
+    "condition": "已洗净",
+    "spec": "蓝色，三合一结构",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/stainless-lunch-box.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "lion-collar-cleaner",
+    "name": "狮王衣领净",
+    "category": "收纳/日用",
+    "price": 3,
+    "currency": "r",
+    "priceLabel": "3r",
+    "shortDesc": "衣领清洁用品。",
+    "detail": "狮王衣领净。",
+    "condition": "请现场确认",
+    "spec": "衣物清洁用品",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/lion-collar-cleaner.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "lens-cleaning-spray",
+    "name": "镜片清洁喷雾",
+    "category": "收纳/日用",
+    "price": 1,
+    "currency": "r",
+    "priceLabel": "1r",
+    "shortDesc": "镜片清洁喷雾。",
+    "detail": "镜片清洁喷雾。",
+    "condition": "请现场确认",
+    "spec": "镜片清洁用品",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/lens-cleaning-spray.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "yanxuan-clothes-deodorizer",
+    "name": "网易严选衣物除味喷雾",
+    "category": "收纳/日用",
+    "price": 5,
+    "currency": "r",
+    "priceLabel": "5r",
+    "shortDesc": "剩一半多，适合吃完火锅后喷。",
+    "detail": "网易严选衣物除味喷雾，剩一半多，适合吃完火锅之类的场景使用。",
+    "condition": "剩一半多",
+    "spec": "衣物除味喷雾",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/yanxuan-clothes-deodorizer.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "storage-box-with-lid",
+    "name": "储物盒",
+    "category": "收纳/日用",
+    "price": 10,
+    "currency": "r",
+    "priceLabel": "10r",
+    "shortDesc": "有盖子，隔间不可拆卸。",
+    "detail": "储物盒，有盖子，隔间不可拆卸，可以放护肤品或小件衣物。",
+    "condition": "请现场确认",
+    "spec": "带盖储物盒",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/storage-box-with-lid.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "draining-storage-basket",
+    "name": "储物筐",
+    "category": "收纳/日用",
+    "price": 5,
+    "currency": "r",
+    "priceLabel": "5r",
+    "shortDesc": "塑料材质，可快速沥干。",
+    "detail": "储物筐，塑料材质，可快速沥干。",
+    "condition": "请现场确认",
+    "spec": "塑料储物筐",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/draining-storage-basket.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "anti-fog-lens-wipes",
+    "name": "镜片防雾湿巾",
+    "category": "收纳/日用",
+    "price": 5,
+    "currency": "r",
+    "priceLabel": "5r",
+    "shortDesc": "大概还有90张，冬天实用。",
+    "detail": "镜片防雾湿巾，大概还有90张，冬天实用。",
+    "condition": "约剩90张",
+    "spec": "镜片防雾湿巾",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/anti-fog-lens-wipes.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "three-tier-desk-shelf",
+    "name": "桌面三层储物架",
+    "category": "收纳/日用",
+    "price": 15,
+    "currency": "r",
+    "priceLabel": "15r",
+    "shortDesc": "每层木板均可拆卸。",
+    "detail": "桌面三层储物架，每层木板均可拆卸。",
+    "condition": "请现场确认",
+    "spec": "三层储物架",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/three-tier-desk-shelf.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "bvlgari-glacial-essence-15ml",
+    "name": "宝格丽男香 冰川精华 15ml",
+    "category": "美妆个护",
+    "price": 68,
+    "currency": "r",
+    "priceLabel": "68r",
+    "shortDesc": "15ml 男香。",
+    "detail": "宝格丽男香冰川精华，15ml。",
+    "condition": "请现场确认",
+    "spec": "15ml",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/bvlgari-glacial-essence-15ml.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "tiffany-men-fragrance-50ml",
+    "name": "Tiffany男香 50ml",
+    "category": "美妆个护",
+    "price": 490,
+    "currency": "r",
+    "priceLabel": "490r",
+    "shortDesc": "50ml 男香。",
+    "detail": "Tiffany 男香，50ml。",
+    "condition": "请现场确认",
+    "spec": "50ml",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/tiffany-men-fragrance-50ml.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "lancome-tonique-confort-125ml",
+    "name": "兰蔻粉水 125ml",
+    "category": "美妆个护",
     "price": 35,
     "currency": "r",
     "priceLabel": "35r",
-    "shortDesc": "Cambridge English breakfast tea 礼盒。",
-    "detail": "Cambridge English Breakfast Tea 礼盒，适合作为自用或小礼物。数量和包装状态请现场确认。",
-    "condition": "礼盒商品，包装状态请现场确认",
-    "spec": "早餐茶礼盒",
-    "note": "食品饮品类请现场仔细确认后购买。",
-    "images": ["/products/cambridge-breakfast-tea.jpg"],
+    "shortDesc": "全新，125ml。",
+    "detail": "兰蔻粉水 125ml，全新。",
+    "condition": "全新",
+    "spec": "125ml",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/lancome-tonique-confort-125ml.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "fuerjia-mask-box",
+    "name": "敷尔佳面膜（一盒）",
+    "category": "美妆个护",
+    "price": 45,
+    "currency": "r",
+    "priceLabel": "45r/盒",
+    "shortDesc": "按盒出售，45r/盒。",
+    "detail": "敷尔佳面膜，按盒出售，45r/盒。",
+    "condition": "请现场确认",
+    "spec": "一盒",
+    "note": "也可按单片购买，单片价格见另一个商品项。",
+    "images": [
+      "/products/daily/fuerjia-mask.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "fuerjia-mask-piece",
+    "name": "敷尔佳面膜（单片）",
+    "category": "美妆个护",
+    "price": 10,
+    "currency": "r",
+    "priceLabel": "10r/片",
+    "shortDesc": "按片出售，10r/片。",
+    "detail": "敷尔佳面膜，按单片出售，10r/片。",
+    "condition": "请现场确认",
+    "spec": "单片",
+    "note": "也可按盒购买，盒装价格见另一个商品项。",
+    "images": [
+      "/products/daily/fuerjia-mask.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "hand-cream",
+    "name": "护手霜",
+    "category": "美妆个护",
+    "price": 5,
+    "currency": "r",
+    "priceLabel": "5r",
+    "shortDesc": "护手霜。",
+    "detail": "护手霜。",
+    "condition": "请现场确认",
+    "spec": "护手霜",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/hand-cream.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "yusu-acne-serum-5ml",
+    "name": "羽素祛痘大灯泡 5ml",
+    "category": "美妆个护",
+    "price": 25,
+    "currency": "r",
+    "priceLabel": "25r",
+    "shortDesc": "5ml体验装，未拆封。",
+    "detail": "羽素祛痘大灯泡，5ml 体验装，未拆封。",
+    "condition": "未拆封",
+    "spec": "5ml 体验装",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/daily/yusu-acne-serum-5ml.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "inline-skates-43",
+    "name": "轮滑鞋 43码",
+    "category": "运动用品",
+    "price": 220,
+    "currency": "r",
+    "priceLabel": "220r",
+    "shortDesc": "只穿过两三次，已洗净。",
+    "detail": "轮滑鞋 43 码，只穿过两三次，内胆和外表已洗净。",
+    "condition": "只穿过两三次，已洗净",
+    "spec": "43码",
+    "note": "请现场试看后付款。",
+    "images": [
+      "/products/daily/inline-skates-43.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "micro-inline-skates-43",
+    "name": "米高轮滑鞋 43码",
+    "category": "运动用品",
+    "price": 140,
+    "currency": "r",
+    "priceLabel": "140r",
+    "shortDesc": "磨损较明显，内胆和外表已洗净。",
+    "detail": "米高轮滑鞋 43 码，轮滑课穿的久一些，磨损较明显。内胆和外表已洗净。",
+    "condition": "磨损较明显，已洗净",
+    "spec": "43码",
+    "note": "请现场试看后付款。",
+    "images": [
+      "/products/daily/micro-inline-skates-43.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "hair-dryer",
+    "name": "吹风机",
+    "category": "小电器",
+    "price": 15,
+    "currency": "r",
+    "priceLabel": "15r",
+    "shortDesc": "吹风机。",
+    "detail": "吹风机。",
+    "condition": "请现场确认",
+    "spec": "吹风机",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/electronics/hair-dryer.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "lenovo-desktop-speaker",
+    "name": "联想桌面音响",
+    "category": "小电器",
+    "price": 26.8,
+    "currency": "r",
+    "priceLabel": "26.8r",
+    "shortDesc": "用过1个月，包装完好。",
+    "detail": "联想桌面音响，用过1个月，包装完好。",
+    "condition": "用过1个月",
+    "spec": "桌面音响",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/electronics/lenovo-desktop-speaker.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "mini-egg-cooker",
+    "name": "小巧煮蛋器",
+    "category": "小电器",
+    "price": 18.8,
+    "currency": "r",
+    "priceLabel": "18.8r",
+    "shortDesc": "一次可煮两个蛋，宿舍可用。",
+    "detail": "小巧煮蛋器，一次可煮两个蛋，宿舍可用，可以预约和定时。",
+    "condition": "请现场确认",
+    "spec": "可煮两个蛋，支持预约和定时",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/electronics/mini-egg-cooker.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "mini-fridge-18l",
+    "name": "小冰箱（宿舍可用）",
+    "category": "小电器",
+    "price": 178,
+    "currency": "r",
+    "priceLabel": "178r",
+    "shortDesc": "18L，可加热/制冷，有数字显示屏。",
+    "detail": "小冰箱，宿舍可用。容积18L，可加热/制冷，有数字显示屏。",
+    "condition": "请现场确认",
+    "spec": "18L，可加热/制冷，数字显示屏",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/electronics/mini-fridge-18l.jpg"
+    ],
     "stock": 1,
     "status": "available",
     "featured": true

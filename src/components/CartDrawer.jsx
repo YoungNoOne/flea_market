@@ -2,6 +2,11 @@ function priceLabel(item) {
   return item.priceLabel || `${item.price}${item.currency || "r"}`;
 }
 
+function formatPrice(value) {
+  const rounded = Math.round((Number(value) + Number.EPSILON) * 100) / 100;
+  return String(rounded);
+}
+
 export default function CartDrawer({
   isOpen,
   items,
@@ -41,7 +46,7 @@ export default function CartDrawer({
               <article className="cart-item" key={item.id}>
                 <img src={item.images[0]} alt={item.name} />
                 <div>
-                  <h3>{item.name}</h3>
+                  <h3>{item.displayName || item.name}</h3>
                   <p>{priceLabel(item)} / 件</p>
                   <div className="quantity-control" aria-label={`${item.name} 数量`}>
                     <button type="button" onClick={() => onDecrease(item.id)}>
@@ -60,7 +65,7 @@ export default function CartDrawer({
                     </button>
                   </div>
                 </div>
-                <strong>{item.price * item.quantity}r</strong>
+                <strong>{formatPrice(item.price * item.quantity)}r</strong>
               </article>
             ))}
           </div>
@@ -69,7 +74,7 @@ export default function CartDrawer({
         <div className="cart-summary">
           <div>
             <span>合计</span>
-            <strong>{total}r</strong>
+            <strong>{formatPrice(total)}r</strong>
           </div>
           <p>请把这个页面给摊主确认，现场使用微信、支付宝或现金付款。</p>
           <button className="primary-button full-width" type="button" onClick={onClose}>
