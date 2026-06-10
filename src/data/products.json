@@ -133,6 +133,25 @@
     "featured": false
   },
   {
+    "id": "cet-headphones",
+    "name": "四六级耳机",
+    "category": "雅思/英语",
+    "price": 20,
+    "currency": "r",
+    "priceLabel": "20r",
+    "shortDesc": "四六级考试耳机。",
+    "detail": "四六级耳机，具体功能和成色请现场确认。",
+    "condition": "请现场确认",
+    "spec": "四六级耳机",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/digital/cet-headphones.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
     "id": "information-theory-solutions",
     "name": "信息论基础习题解答",
     "category": "专业课资料",
@@ -380,6 +399,25 @@
     "featured": false
   },
   {
+    "id": "b5-punched-note-paper",
+    "name": "一沓打孔B5笔记用纸",
+    "category": "笔记本/书",
+    "price": 5,
+    "currency": "r",
+    "priceLabel": "5r",
+    "shortDesc": "一沓打孔 B5 笔记用纸。",
+    "detail": "一沓打孔 B5 笔记用纸。",
+    "condition": "请现场确认",
+    "spec": "B5 打孔笔记用纸",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/books/b5-punched-note-paper.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
     "id": "cambridge-breakfast-tea",
     "name": "剑桥早餐茶礼盒",
     "category": "食品饮品",
@@ -416,6 +454,44 @@
     "stock": 1,
     "status": "available",
     "featured": true
+  },
+  {
+    "id": "wood-keyboard-wrist-rest",
+    "name": "实木键盘护腕手托",
+    "category": "数码配件",
+    "price": 8,
+    "currency": "r",
+    "priceLabel": "8r",
+    "shortDesc": "实木键盘护腕手托。",
+    "detail": "实木键盘护腕手托，具体成色请现场确认。",
+    "condition": "请现场确认",
+    "spec": "键盘护腕手托",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/digital/wood-keyboard-wrist-rest.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "laptop-cooling-pad",
+    "name": "夏季线笔记本/游戏本压风式散热器",
+    "category": "数码配件",
+    "price": 60,
+    "currency": "r",
+    "priceLabel": "60r",
+    "shortDesc": "笔记本/游戏本压风式散热器。",
+    "detail": "夏季线笔记本/游戏本压风式散热器，具体功能和成色请现场确认。",
+    "condition": "请现场确认",
+    "spec": "笔记本/游戏本散热器",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/digital/laptop-cooling-pad.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
   },
   {
     "id": "ipad-rotating-stand",
@@ -887,6 +963,25 @@
     "note": "价格和功能请现场确认。",
     "images": [
       "/products/electronics/skg-neck-massager.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "smart-eye-massager",
+    "name": "智能眼部按摩仪",
+    "category": "小电器",
+    "price": 70,
+    "currency": "r",
+    "priceLabel": "70r",
+    "shortDesc": "智能眼部按摩仪。",
+    "detail": "智能眼部按摩仪，具体功能和成色请现场确认。",
+    "condition": "请现场确认",
+    "spec": "眼部按摩仪",
+    "note": "请现场确认后付款。",
+    "images": [
+      "/products/electronics/smart-eye-massager.jpg"
     ],
     "stock": 1,
     "status": "available",
