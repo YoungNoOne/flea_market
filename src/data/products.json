@@ -16,7 +16,7 @@
     ],
     "stock": 9,
     "status": "available",
-    "featured": true
+    "featured": false
   },
   {
     "id": "ielts-listening-179",
@@ -301,7 +301,8 @@
     ],
     "stock": 0,
     "status": "contact",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 10
   },
   {
     "id": "the-republic",
@@ -434,7 +435,8 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 3
   },
   {
     "id": "logitech-k380",
@@ -453,7 +455,8 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": true
+    "featured": true,
+    "featuredOrder": 2
   },
   {
     "id": "wood-keyboard-wrist-rest",
@@ -491,7 +494,8 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 1
   },
   {
     "id": "ipad-rotating-stand",
@@ -529,7 +533,7 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": true
+    "featured": false
   },
   {
     "id": "logitech-g304-mouse",
@@ -548,7 +552,8 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 4
   },
   {
     "id": "ugreen-usb-hub",
@@ -567,7 +572,7 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": true
+    "featured": false
   },
   {
     "id": "ugreen-t6s-earbuds",
@@ -586,7 +591,8 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 5
   },
   {
     "id": "two-tier-desk-shelf",
@@ -814,7 +820,8 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 6
   },
   {
     "id": "lancome-tonique-confort-125ml",
@@ -833,7 +840,8 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 7
   },
   {
     "id": "fuerjia-mask-box",
@@ -966,7 +974,8 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 9
   },
   {
     "id": "smart-eye-massager",
@@ -1061,6 +1070,7 @@
     ],
     "stock": 1,
     "status": "available",
-    "featured": true
+    "featured": true,
+    "featuredOrder": 8
   }
 ]

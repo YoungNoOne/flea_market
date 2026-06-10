@@ -42,7 +42,10 @@ export default function App() {
   );
 
   const featuredProducts = useMemo(
-    () => products.filter((product) => product.featured).slice(0, 5),
+    () =>
+      products
+        .filter((product) => product.featured)
+        .sort((a, b) => (a.featuredOrder || 999) - (b.featuredOrder || 999)),
     []
   );
 
