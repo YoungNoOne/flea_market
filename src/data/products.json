@@ -380,6 +380,25 @@
     "featured": false
   },
   {
+    "id": "cambridge-breakfast-tea",
+    "name": "剑桥早餐茶礼盒",
+    "category": "食品饮品",
+    "price": 35,
+    "currency": "r",
+    "priceLabel": "35r",
+    "shortDesc": "Cambridge English breakfast tea 礼盒。",
+    "detail": "Cambridge English Breakfast Tea 礼盒，适合作为自用或小礼物。数量和包装状态请现场确认。",
+    "condition": "礼盒商品，包装状态请现场确认",
+    "spec": "早餐茶礼盒",
+    "note": "食品饮品类请现场仔细确认后购买。",
+    "images": [
+      "/products/food/cambridge-breakfast-tea.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
     "id": "logitech-k380",
     "name": "罗技 K380",
     "category": "数码配件",
@@ -392,7 +411,7 @@
     "spec": "蓝牙键盘",
     "note": "请现场确认后付款。",
     "images": [
-      "/products/logitech-k380.jpg"
+      "/products/digital/logitech-k380.jpg"
     ],
     "stock": 1,
     "status": "available",
@@ -849,6 +868,25 @@
     "note": "请现场试看后付款。",
     "images": [
       "/products/daily/micro-inline-skates-43.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "skg-neck-massager",
+    "name": "SKG 颈部按摩仪",
+    "category": "小电器",
+    "price": 45,
+    "currency": "r",
+    "priceLabel": "45r",
+    "shortDesc": "便携颈部按摩仪，适合学习间隙放松。",
+    "detail": "SKG 颈部按摩仪，适合学习久坐后放松颈部。图片为当前实物，具体功能和成色请现场确认。",
+    "condition": "二手，具体成色请现场确认",
+    "spec": "便携颈部按摩仪",
+    "note": "价格和功能请现场确认。",
+    "images": [
+      "/products/electronics/skg-neck-massager.jpg"
     ],
     "stock": 1,
     "status": "available",
