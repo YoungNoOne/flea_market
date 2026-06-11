@@ -29,9 +29,27 @@ function formatPrice(value) {
   return String(rounded);
 }
 
+function searchableText(product) {
+  return [
+    product.name,
+    product.displayName,
+    product.category,
+    product.shortDesc,
+    product.detail,
+    product.condition,
+    product.spec,
+    product.note,
+    product.priceLabel
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [activeCategory, setActiveCategory] = useState("全部");
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cart, setCart] = useState(readStoredCart);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -50,9 +68,16 @@ export default function App() {
   );
 
   const filteredProducts = useMemo(() => {
-    if (activeCategory === "全部") return products;
-    return products.filter((product) => product.category === activeCategory);
-  }, [activeCategory]);
+    const keyword = searchQuery.trim().toLowerCase();
+    const categoryProducts =
+      activeCategory === "全部"
+        ? products
+        : products.filter((product) => product.category === activeCategory);
+
+    if (!keyword) return categoryProducts;
+
+    return categoryProducts.filter((product) => searchableText(product).includes(keyword));
+  }, [activeCategory, searchQuery]);
 
   const groupedProducts = useMemo(() => {
     return filteredProducts.reduce((groups, product) => {
@@ -77,6 +102,7 @@ export default function App() {
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const hasSearch = searchQuery.trim().length > 0;
 
   useEffect(() => {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
@@ -200,6 +226,24 @@ export default function App() {
             </div>
           </header>
 
+          <div className="product-search">
+            <label htmlFor="product-search">搜索商品</label>
+            <div className="search-field">
+              <input
+                id="product-search"
+                type="search"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="搜索商品、分类或描述"
+              />
+              {hasSearch && (
+                <button type="button" onClick={() => setSearchQuery("")} aria-label="清除搜索">
+                  ×
+                </button>
+              )}
+            </div>
+          </div>
+
           <div className="product-layout">
             <aside className="side-categories" aria-label="Product categories">
               {categories.map((category) => (
@@ -215,7 +259,20 @@ export default function App() {
             </aside>
 
             <section className="product-list" aria-label="Products">
-              {Object.entries(groupedProducts).map(([groupName, groupProducts]) => (
+              {filteredProducts.length === 0 && (
+                <div className="empty-products">
+                  <strong>没有找到相关商品</strong>
+                  <span>{hasSearch ? `当前搜索：${searchQuery.trim()}` : "换个分类看看"}</span>
+                  {hasSearch && (
+                    <button type="button" onClick={() => setSearchQuery("")}>
+                      清除搜索
+                    </button>
+                  )}
+                </div>
+              )}
+
+              {filteredProducts.length > 0 &&
+                Object.entries(groupedProducts).map(([groupName, groupProducts]) => (
                 <div className="product-group" key={groupName}>
                   <h2>{groupName}</h2>
                   {groupProducts.map((product) => {
@@ -256,7 +313,7 @@ export default function App() {
                     );
                   })}
                 </div>
-              ))}
+                ))}
             </section>
           </div>
 
