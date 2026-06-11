@@ -257,11 +257,74 @@ img {
   padding-bottom: 176px;
 }
 
+.product-search {
+  display: grid;
+  gap: 8px;
+  margin: -4px 0 16px;
+}
+
+.product-search label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.search-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px;
+  align-items: center;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.search-field input {
+  min-width: 0;
+  height: 46px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 14px;
+  background: transparent;
+  color: var(--ink);
+  outline: none;
+}
+
+.search-field input::placeholder {
+  color: rgba(162, 170, 162, 0.72);
+}
+
+.search-field input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-field:focus-within {
+  border-color: rgba(144, 215, 167, 0.72);
+  box-shadow: 0 0 0 3px rgba(144, 215, 167, 0.12);
+}
+
+.search-field button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(247, 248, 243, 0.08);
+  color: var(--muted);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.search-field button:hover {
+  color: var(--ink);
+}
+
 .product-layout {
   display: grid;
   grid-template-columns: 92px minmax(0, 1fr);
   gap: 14px;
-  min-height: calc(100vh - 214px);
+  min-height: calc(100vh - 286px);
 }
 
 .side-categories {
@@ -296,6 +359,40 @@ img {
   gap: 20px;
   overflow-y: auto;
   padding-bottom: 12px;
+}
+
+.empty-products {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  background: var(--panel);
+}
+
+.empty-products strong {
+  color: #fff;
+  font-size: 18px;
+}
+
+.empty-products span {
+  max-width: 100%;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.empty-products button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 16px;
+  background: var(--accent);
+  color: var(--ink-dark);
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .product-group h2 {
