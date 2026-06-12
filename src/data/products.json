@@ -19,6 +19,25 @@
     "featured": false
   },
   {
+    "id": "cambridge-ielts-11-19-extra",
+    "name": "剑雅真题纸质版 11-19（另一份）",
+    "category": "雅思/英语",
+    "price": 3,
+    "currency": "r",
+    "priceLabel": "3r/本",
+    "shortDesc": "另一份剑雅真题纸质版，可单买。",
+    "detail": "另一份剑桥雅思真题纸质版 11-19，具体版本和成色请现场确认。",
+    "condition": "请现场确认",
+    "spec": "纸质版 11-19，单本出售",
+    "note": "与另一组剑雅资料分开保留，请现场确认具体版本。",
+    "images": [
+      "/products/books/cambridge-ielts-11-19-extra.jpg"
+    ],
+    "stock": 9,
+    "status": "available",
+    "featured": false
+  },
+  {
     "id": "ielts-listening-179",
     "name": "学为贵雅思听力179",
     "category": "雅思/英语",
@@ -184,6 +203,25 @@
     "note": "请现场确认后付款。",
     "images": [
       "/products/books/bupt-communication-principles-exercises.jpg"
+    ],
+    "stock": 1,
+    "status": "available",
+    "featured": false
+  },
+  {
+    "id": "bupt-communication-principles-exercises-extra",
+    "name": "北邮通原习题集（另一份）",
+    "category": "专业课资料",
+    "price": 5,
+    "currency": "r",
+    "priceLabel": "5r",
+    "shortDesc": "另一份通原习题集。",
+    "detail": "另一份北邮通信原理习题集，具体成色请现场确认。",
+    "condition": "请现场确认",
+    "spec": "通信原理习题集",
+    "note": "与另一份通原习题集分开保留。",
+    "images": [
+      "/products/books/bupt-communication-principles-exercises-extra.jpg"
     ],
     "stock": 1,
     "status": "available",
