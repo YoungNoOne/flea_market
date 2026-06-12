@@ -29,6 +29,10 @@ function formatPrice(value) {
   return String(rounded);
 }
 
+function isVisibleProduct(product) {
+  return product.status !== "sold";
+}
+
 function searchableText(product) {
   return [
     product.name,
@@ -54,30 +58,32 @@ export default function App() {
   const [cart, setCart] = useState(readStoredCart);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  const visibleProducts = useMemo(() => products.filter(isVisibleProduct), []);
+
   const categories = useMemo(
-    () => ["全部", ...Array.from(new Set(products.map((product) => product.category)))],
-    []
+    () => ["全部", ...Array.from(new Set(visibleProducts.map((product) => product.category)))],
+    [visibleProducts]
   );
 
   const featuredProducts = useMemo(
     () =>
-      products
+      visibleProducts
         .filter((product) => product.featured)
         .sort((a, b) => (a.featuredOrder || 999) - (b.featuredOrder || 999)),
-    []
+    [visibleProducts]
   );
 
   const filteredProducts = useMemo(() => {
     const keyword = searchQuery.trim().toLowerCase();
     const categoryProducts =
       activeCategory === "全部"
-        ? products
-        : products.filter((product) => product.category === activeCategory);
+        ? visibleProducts
+        : visibleProducts.filter((product) => product.category === activeCategory);
 
     if (!keyword) return categoryProducts;
 
     return categoryProducts.filter((product) => searchableText(product).includes(keyword));
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, visibleProducts]);
 
   const groupedProducts = useMemo(() => {
     return filteredProducts.reduce((groups, product) => {
@@ -94,7 +100,9 @@ export default function App() {
       Object.entries(cart)
         .map(([id, quantity]) => {
           const product = products.find((item) => item.id === id);
-          return product ? { ...product, quantity } : null;
+          return product && product.status === "available" && product.stock > 0
+            ? { ...product, quantity: Math.min(quantity, product.stock) }
+            : null;
         })
         .filter(Boolean),
     [cart]
