@@ -19,25 +19,6 @@
     "featured": false
   },
   {
-    "id": "cambridge-ielts-11-19-extra",
-    "name": "剑雅真题纸质版 11-19（另一份）",
-    "category": "雅思/英语",
-    "price": 3,
-    "currency": "r",
-    "priceLabel": "3r/本",
-    "shortDesc": "另一份剑雅真题纸质版，可单买。",
-    "detail": "另一份剑桥雅思真题纸质版 11-19，具体版本和成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "纸质版 11-19，单本出售",
-    "note": "与另一组剑雅资料分开保留，请现场确认具体版本。",
-    "images": [
-      "/products/books/cambridge-ielts-11-19-extra.jpg"
-    ],
-    "stock": 9,
-    "status": "available",
-    "featured": false
-  },
-  {
     "id": "ielts-listening-179",
     "name": "学为贵雅思听力179",
     "category": "雅思/英语",
@@ -209,25 +190,6 @@
     "featured": false
   },
   {
-    "id": "bupt-communication-principles-exercises-extra",
-    "name": "北邮通原习题集（另一份）",
-    "category": "专业课资料",
-    "price": 5,
-    "currency": "r",
-    "priceLabel": "5r",
-    "shortDesc": "另一份通原习题集。",
-    "detail": "另一份北邮通信原理习题集，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "通信原理习题集",
-    "note": "与另一份通原习题集分开保留。",
-    "images": [
-      "/products/books/bupt-communication-principles-exercises-extra.jpg"
-    ],
-    "stock": 1,
-    "status": "available",
-    "featured": false
-  },
-  {
     "id": "electric-circuits-english",
     "name": "电路分析基础英文版",
     "category": "专业课资料",
@@ -317,139 +279,6 @@
     "note": "请现场确认后付款。",
     "images": [
       "/products/books/digital-signal-processing.jpg"
-    ],
-    "stock": 1,
-    "status": "available",
-    "featured": false
-  },
-  {
-    "id": "field-wave-electromagnetics-guide",
-    "name": "电磁场与电磁波教学、学习与考研指导",
-    "category": "专业课资料",
-    "price": 8,
-    "currency": "8r",
-    "priceLabel": "8r",
-    "shortDesc": "第3版，考研指导教材。",
-    "detail": "《电磁场与电磁波教学、学习与考研指导》第3版，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "第3版，考研指导教材",
-    "note": "",
-    "images": [
-      "/products/books/field-wave-electromagnetics-guide.jpg"
-    ],
-    "stock": 1,
-    "status": "available",
-    "featured": false
-  },
-  {
-    "id": "advanced-math-exercises",
-    "name": "高等数学习题精选精解",
-    "category": "专业课资料",
-    "price": 8,
-    "currency": "8r",
-    "priceLabel": "8r",
-    "shortDesc": "高等数学同步辅导用书。",
-    "detail": "《高等数学习题精选精解》，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "高等数学习题资料",
-    "note": "价格待定，请确认后修改。",
-    "images": [
-      "/products/books/advanced-math-exercises.jpg"
-    ],
-    "stock": 8,
-    "status": "available",
-    "featured": false
-  },
-  {
-    "id": "linear-algebra-exercises",
-    "name": "线性代数习题精选精解",
-    "category": "专业课资料",
-    "price": 5,
-    "currency": "5r",
-    "priceLabel": "5r",
-    "shortDesc": "线性代数习题辅导书。",
-    "detail": "《线性代数习题精选精解》，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "线性代数习题资料",
-    "note": "",
-    "images": [
-      "/products/books/linear-algebra-exercises.jpg"
-    ],
-    "stock": 1,
-    "status": "available",
-    "featured": false
-  },
-  {
-    "id": "linear-algebra-applications",
-    "name": "线性代数及其应用",
-    "category": "专业课资料",
-    "price": 5,
-    "currency": "5r",
-    "priceLabel": "5r",
-    "shortDesc": "线性代数教材。",
-    "detail": "《线性代数及其应用》，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "线性代数教材",
-    "note": "价格待定，请确认后修改。",
-    "images": [
-      "/products/books/linear-algebra-applications.jpg"
-    ],
-    "stock": 1,
-    "status": "available",
-    "featured": false
-  },
-  {
-    "id": "data-structures-c-language",
-    "name": "数据结构与算法分析：C语言描述",
-    "category": "专业课资料",
-    "price": 3,
-    "currency": "3r",
-    "priceLabel": "3r",
-    "shortDesc": "C语言版数据结构教材。",
-    "detail": "《数据结构与算法分析：C语言描述》，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "C语言版教材",
-    "note": "",
-    "images": [
-      "/products/books/data-structures-c-language.jpg"
-    ],
-    "stock": 1,
-    "status": "available",
-    "featured": false
-  },
-  {
-    "id": "probability-statistics-textbook",
-    "name": "概率论与数理统计",
-    "category": "专业课资料",
-    "price": 4,
-    "currency": "4",
-    "priceLabel": "4r",
-    "shortDesc": "第5版概率论教材。",
-    "detail": "《概率论与数理统计》第5版，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "第5版教材",
-    "note": "",
-    "images": [
-      "/products/books/probability-statistics-textbook.jpg"
-    ],
-    "stock": 2,
-    "status": "available",
-    "featured": false
-  },
-  {
-    "id": "electronic-circuit-design-practice",
-    "name": "电子电路基础与设计实践",
-    "category": "专业课资料",
-    "price": 5,
-    "currency": "5r",
-    "priceLabel": "5r",
-    "shortDesc": "第2版电子电路教材。",
-    "detail": "《电子电路基础与设计实践》第2版，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "第2版教材",
-    "note": "",
-    "images": [
-      "/products/books/electronic-circuit-design-practice.jpg"
     ],
     "stock": 1,
     "status": "available",
@@ -624,10 +453,9 @@
     "images": [
       "/products/digital/logitech-k380.jpg"
     ],
-    "stock": 1,
-    "status": "available",
-    "featured": true,
-    "featuredOrder": 2
+    "stock": 0,
+    "status": "sold",
+    "featured": false
   },
   {
     "id": "wood-keyboard-wrist-rest",
@@ -644,8 +472,8 @@
     "images": [
       "/products/digital/wood-keyboard-wrist-rest.jpg"
     ],
-    "stock": 1,
-    "status": "available",
+    "stock": 0,
+    "status": "sold",
     "featured": false
   },
   {
@@ -702,8 +530,8 @@
     "images": [
       "/products/digital/maicong-laptop-stand.jpg"
     ],
-    "stock": 1,
-    "status": "available",
+    "stock": 0,
+    "status": "sold",
     "featured": false
   },
   {
@@ -721,10 +549,9 @@
     "images": [
       "/products/digital/logitech-g304-mouse.jpg"
     ],
-    "stock": 1,
-    "status": "available",
-    "featured": true,
-    "featuredOrder": 4
+    "stock": 0,
+    "status": "sold",
+    "featured": false
   },
   {
     "id": "ugreen-usb-hub",
@@ -741,8 +568,8 @@
     "images": [
       "/products/digital/ugreen-usb-hub.jpg"
     ],
-    "stock": 1,
-    "status": "available",
+    "stock": 0,
+    "status": "sold",
     "featured": false
   },
   {
@@ -760,28 +587,8 @@
     "images": [
       "/products/digital/ugreen-t6s-earbuds.jpg"
     ],
-    "stock": 1,
-    "status": "available",
-    "featured": true,
-    "featuredOrder": 5
-  },
-  {
-    "id": "g2000-bt-wireless-headset",
-    "name": "G2000 BT 头戴耳机",
-    "category": "数码配件",
-    "price": 38,
-    "currency": "r",
-    "priceLabel": "38r",
-    "shortDesc": "G2000 BT wireless headset。",
-    "detail": "G2000 BT 头戴耳机，包装如图，具体功能和成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "头戴耳机",
-    "note": "",
-    "images": [
-      "/products/digital/g2000-bt-wireless-headset.jpg"
-    ],
-    "stock": 1,
-    "status": "available",
+    "stock": 0,
+    "status": "sold",
     "featured": false
   },
   {
@@ -918,25 +725,6 @@
     "featured": false
   },
   {
-    "id": "green-folding-book-stand",
-    "name": "绿色折叠阅读架",
-    "category": "收纳/日用",
-    "price": 8,
-    "currency": "8r",
-    "priceLabel": "8r",
-    "shortDesc": "绿色可折叠书架/阅读架。",
-    "detail": "绿色折叠阅读架，适合放书或平板，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "可折叠阅读架",
-    "note": "",
-    "images": [
-      "/products/daily/green-folding-book-stand.jpg"
-    ],
-    "stock": 8,
-    "status": "contact",
-    "featured": false
-  },
-  {
     "id": "draining-storage-basket",
     "name": "储物筐",
     "category": "收纳/日用",
@@ -970,8 +758,8 @@
     "images": [
       "/products/daily/anti-fog-lens-wipes.jpg"
     ],
-    "stock": 1,
-    "status": "available",
+    "stock": 0,
+    "status": "sold",
     "featured": false
   },
   {
@@ -1167,25 +955,6 @@
     "featured": false
   },
   {
-    "id": "portable-table-tennis-net",
-    "name": "便携乒乓球网",
-    "category": "运动用品",
-    "price": 5,
-    "currency": "5r",
-    "priceLabel": "5r",
-    "shortDesc": "便携式乒乓球网。",
-    "detail": "便携式乒乓球网，具体成色请现场确认。",
-    "condition": "请现场确认",
-    "spec": "便携式球网",
-    "note": "",
-    "images": [
-      "/products/daily/portable-table-tennis-net.jpg"
-    ],
-    "stock": 1,
-    "status": "available",
-    "featured": false
-  },
-  {
     "id": "skg-neck-massager",
     "name": "SKG 颈部按摩仪",
     "category": "小电器",
@@ -1239,8 +1008,8 @@
     "images": [
       "/products/electronics/hair-dryer.jpg"
     ],
-    "stock": 1,
-    "status": "available",
+    "stock": 0,
+    "status": "sold",
     "featured": false
   },
   {
@@ -1277,27 +1046,8 @@
     "images": [
       "/products/electronics/mini-egg-cooker.jpg"
     ],
-    "stock": 1,
-    "status": "available",
-    "featured": false
-  },
-  {
-    "id": "white-mini-fridge",
-    "name": "海尔宿舍冰箱",
-    "category": "小电器",
-    "price": 168,
-    "currency": "168r",
-    "priceLabel": "168r",
-    "shortDesc": "白色小冰箱，具体规格请现场确认。",
-    "detail": "42L，多档净化，学5可用",
-    "condition": "请现场确认",
-    "spec": "迷你冰箱",
-    "note": "",
-    "images": [
-      "/products/electronics/white-mini-fridge.jpg"
-    ],
-    "stock": 1,
-    "status": "available",
+    "stock": 0,
+    "status": "sold",
     "featured": false
   },
   {
@@ -1315,9 +1065,8 @@
     "images": [
       "/products/electronics/mini-fridge-18l.jpg"
     ],
-    "stock": 1,
-    "status": "available",
-    "featured": true,
-    "featuredOrder": 8
+    "stock": 0,
+    "status": "sold",
+    "featured": false
   }
 ]
